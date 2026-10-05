@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | Rosé Beauty</title>
+
+
+<!-- CSS -->
+<link rel="stylesheet" href="2026-0082MarquezStyle.css">
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<header class="header">
+    <nav class="navbar">
+        <a href="2026-0082MarquezRoseBeauty.html" class="logo">Rosé<span>Beauty</span></a>
+
+        <ul class="nav-links">
+            <li><a href="2026-0082MarquezRoseBeauty.html">Home</a></li>
+            <li><a href="2026-0082MarquezRoseBeauty.html">About</a></li>
+            <li><a href="2026-0082MarquezRoseBeauty2.html">Shop</a></li>
+            <li><a href="2026-0082MarquezRoseBeauty.html#signin">Sign In</a></li>
+            <li><a href="2026-0082MarquezRoseBeauty.html#signup">Sign Up</a></li>
+            <li><a href="#inquiry">Contact</a></li>
+        </ul>
+
+        <!-- Search -->
+        <div class="top-search">
+            <span>⌕</span>
+            <input type="text" id="productSearch" placeholder="Search products..." onkeyup="searchProducts()">
+        </div>
+
+        <!-- Cart -->
+        <button class="cart" type="button" onclick="openCart()">🛍️ <span id="cartCount">0</span></button>
+    </nav>
+</header>
+
+<!-- Shop -->
+<section class="section products" id="shop">
+
+    <div class="products-heading">
+        <div class="section-heading">
+            <span>ROSÉ BEAUTY COLLECTION</span>
+            <h2>Shop your <em>favorites.</em></h2>
+        </div>
+
+        <p>Discover our collection of everyday beauty essentials made to complement every kind of look.</p>
+    </div>
+
+    <!-- Category Cards -->
+    <div class="category-title">
+        <span>SHOP BY CATEGORY</span>
+        <h3>What are you looking for?</h3>
+    </div>
+
+    <div class="category-grid">
+
+        <!-- Lips -->
+        <div class="category-card" id="lips" onclick="showCategory('LIPS')">
+            <img src="images/lips.jpg" alt="Lips">
+
+            <div class="category-overlay">
+                <span>CATEGORY 01</span>
+                <h3>Lips</h3>
+                <small>Lipsticks • Tints • Gloss</small>
+            </div>
+        </div>
+
+        <!-- Face -->
+        <div class="category-card" id="face" onclick="showCategory('FACE')">
+            <img src="images/face.jpg" alt="Face">
+
+            <div class="category-overlay">
+                <span>CATEGORY 02</span>
+                <h3>Face</h3>
+                <small>Foundation • Concealer • Powder</small>
+            </div>
+        </div>
+
+        <!-- Eyes -->
+        <div class="category-card" id="eyes" onclick="showCategory('EYES')">
+            <img src="images/eyes.jpg" alt="Eyes">
+
+            <div class="category-overlay">
+                <span>CATEGORY 03</span>
+                <h3>Eyes</h3>
+                <small>Mascara • Palette • Eyeliner</small>
+            </div>
+        </div>
+
+        <!-- Cheeks -->
+        <div class="category-card" id="cheeks" onclick="showCategory('CHEEKS')">
+            <img src="images/cheeks.jpg" alt="Cheeks">
+
+            <div class="category-overlay">
+                <span>CATEGORY 04</span>
+                <h3>Cheeks</h3>
+                <small>Blush • Cream Blush • Highlighter</small>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- View All Products -->
+    <div class="all-products-box">
+        <button class="all-products-btn" onclick="showCategory('ALL')">View All Products</button>
+    </div>
+
+    <!-- Product Area -->
+    <div id="productArea">
+
+        <div class="product-area-header">
+            <div>
+                <h3 id="categoryProductTitle">Products</h3>
+                <span id="selectedCategory">Select a category</span>
+            </div>
+
+            <button class="back-button" onclick="backToCategories()">← Back to Categories</button>
+        </div>
+
+        <div class="product-grid" id="productGrid">
+
+            <!-- Lips -->
+
+            <!-- Tinted Lip Balm -->
+            <div class="product-card" data-category="LIPS">
+                <div class="product-photo">
+                    <span class="badge new">NEW</span>
+
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)" type="button">♡</button>
+
+                    <img src="images/LIP Balm.jpg" alt="Tinted Lip Balm">
+
+                    <button class="quick-add" onclick="addToCart('Tinted Lip Balm', 299)" type="button">Add to Cart</button>
+                </div>
+
+                <div class="product-details">
+                    <span class="product-category">LIPS</span>
+                    <h3 class="product-name">Tinted Lip Balm</h3>
+                    <p>A soft everyday balm with a natural wash of color.</p>
+
+                    <div class="product-footer">
+                        <div class="rating">★★★★★ <span>4.9</span></div>
+                        <strong class="product-price">₱299.00</strong>
+                    </div>
+
+                    <button class="quick-view-btn" onclick="quickView(this)" type="button">🔍 Quick View</button>
+                </div>
+            </div>
+
+            <!-- Velvet Lipstick -->
+            <div class="product-card" data-category="LIPS">
+                <div class="product-photo">
+                    <span class="badge sale">SALE</span>
+
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)" type="button">♡</button>
+
+                    <img src="images/lipstick.jpg" alt="Velvet Lipstick">
+
+                    <button class="quick-add" onclick="addToCart('Velvet Lipstick', 379)" type="button">Add to Cart</button>
+                </div>
+
+                <div class="product-details">
+                    <span class="product-category">LIPS</span>
+                    <h3 class="product-name">Velvet Lipstick</h3>
+                    <p>Rich color with a smooth, comfortable velvet finish.</p>
+
+                    <div class="product-footer">
+                        <div class="rating">★★★★★ <span>4.8</span></div>
+                        <strong class="product-price"><del>₱449.00</del> ₱379.00</strong>
+                    </div>
+
+                    <button class="quick-view-btn" onclick="quickView(this)" type="button">🔍 Quick View</button>
+                </div>
+            </div>
+
+            <!-- Rose Lip Gloss -->
+            <div class="product-card" data-category="LIPS">
+                <div class="product-photo">
+                    <span class="badge favorite">FAVORITE</span>
+
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)" type="button">♡</button>
+
+                    <img src="images/lipgloss.png" alt="Rose Lip Gloss">
+
+                    <button class="quick-add" onclick="addToCart('Rose Lip Gloss', 329)" type="button">Add to Cart</button>
+                </div>
+
+                <div class="product-details">
+                    <span class="product-category">LIPS</span>
+                    <h3 class="product-name">Rose Lip Gloss</h3>
+                    <p>A lightweight glossy finish for soft-looking lips.</p>
+
+                    <div class="product-footer">
+                        <div class="rating">★★★★★ <span>4.9</span></div>
+                        <strong class="product-price">₱329.00</strong>
+                    </div>
+
+                    <button class="quick-view-btn" onclick="quickView(this)" type="button">🔍 Quick View</button>
+                </div>
+            </div>
+
+            <!-- Face -->
+
+            <!-- Natural Glow Foundation -->
+            <div class="product-card" data-category="FACE">
+                <div class="product-photo">
+                    <span class="badge new">NEW</span>
+
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)" type="button">♡</button>
+
+                    <img src="images/foundation.png" alt="Natural Glow Foundation">
+
+                    <button class="quick-add" onclick="addToCart('Natural Glow Foundation', 599)" type="button">Add to Cart</button>
+                </div>
+
+                <div class="product-details">
+                    <span class="product-category">FACE</span>
+                    <h3 class="product-name">Natural Glow Foundation</h3>
+                    <p>Lightweight coverage with a fresh natural finish.</p>
+
+                    <div class="product-footer">
+                        <div class="rating">★★★★★ <span>4.8</span></div>
+                        <strong class="product-price">₱599.00</strong>
+                    </div>
+
+                    <button class="quick-view-btn" onclick="quickView(this)" type="button">🔍 Quick View</button>
+                </div>
+            </div>
+
+            <!-- Daily Concealer -->
+            <div class="product-card" data-category="FACE">
+                <div class="product-photo">
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)" type="button">♡</button>
+
+                    <img src="images/concealer.avif" alt="Daily Concealer">
+
+                    <button class="quick-add" onclick="addToCart('Daily Concealer', 399)" type="button">Add to Cart</button>
+                </div>
+
+                <div class="product-details">
+                    <span class="product-category">FACE</span>
+                    <h3 class="product-name">Daily Concealer</h3>
+                    <p>Smooth coverage for an effortless everyday look.</p>
+
+                    <div class="product-footer">
+                        <div class="rating">★★★★★ <span>4.7</span></div>
+                        <strong class="product-price">₱399.00</strong>
+                    </div>
+
+                    <button class="quick-view-btn" onclick="quickView(this)" type="button">🔍 Quick View</button>
+                </div>
+            </div>
+
+            <!-- Setting Powder -->
+            <div class="product-card" data-category="FACE">
+                <div class="product-photo">
+                    <span class="badge favorite">FAVORITE</span>
+
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)" type="button">♡</button>
+
+                    <img src="images/powder.png" alt="Setting Powder">
+
+                    <button class="quick-add" onclick="addToCart('Setting Powder', 449)" type="button">Add to Cart</button>
+                </div>
+
+                <div class="product-details">
+                    <span class="product-category">FACE</span>
+                    <h3 class="product-name">Setting Powder</h3>
+                    <p>A soft powder that helps complete your makeup look.</p>
+
+                    <div class="product-footer">
+                        <div class="rating">★★★★★ <span>4.8</span></div>
+                        <strong class="product-price">₱449.00</strong>
+                    </div>
+
+                    <button class="quick-view-btn" onclick="quickView(this)" type="button">🔍 Quick View</button>
+                </div>
+            </div>
+
+            <!-- Eyes -->
+
+            <!-- Everyday Mascara -->
+            <div class="product-card" data-category="EYES">
+                <div class="product-photo">
+                    <span class="badge new">NEW</span>
+
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)" type="button">♡</button>
+
+                    <img src="images/mascara.png" alt="Everyday Mascara">
+
+                    <button class="quick-add" onclick="addToCart('Everyday Mascara', 399)" type="button">Add to Cart</button>
+                </div>
+
+                <div class="product-details">
+                    <span class="product-category">EYES</span>
+                    <h3 class="product-name">Everyday Mascara</h3>
+                    <p>Define your lashes with an easy everyday formula.</p>
+
+                    <div class="product-footer">
+                        <div class="rating">★★★★★ <span>4.9</span></div>
+                        <strong class="product-price">₱399.00</strong>
+                    </div>
+
+                    <button class="quick-view-btn" onclick="quickView(this)" type="button">🔍 Quick View</button>
+                </div>
+            </div>
+
+            <!-- Eyeshadow Palette -->
+            <div class="product-card" data-category="EYES">
+                <div class="product-photo">
+                    <span class="badge favorite">FAVORITE</span>
+
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)" type="button">♡</button>
+
+                    <img src="images/eyeshadow.jpg" alt="Eyeshadow Palette">
+
+                    <button class="quick-add" onclick="addToCart('Eyeshadow Palette', 499)" type="button">Add to Cart</button>
+                </div>
+
+                <div class="product-details">
+                    <span class="product-category">EYES</span>
+                    <h3 class="product-name">Eyeshadow Palette</h3>
+                    <p>Versatile shades for soft and glamorous eye looks.</p>
+
+                    <div class="product-footer">
+                        <div class="rating">★★★★★ <span>4.9</span></div>
+                        <strong class="product-price">₱499.00</strong>
+                    </div>
+
+                    <button class="quick-view-btn" onclick="quickView(this)" type="button">🔍 Quick View</button>
+                </div>
+            </div>
+
+            <!-- Soft Brown Eyeliner -->
+            <div class="product-card" data-category="EYES">
+                <div class="product-photo">
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)" type="button">♡</button>
+
+                    <img src="images/eyeliner.png" alt="Soft Brown Eyeliner">
+
+                    <button class="quick-add" onclick="addToCart('Soft Brown Eyeliner', 279)" type="button">Add to Cart</button>
+                </div>
+
+                <div class="product-details">
+                    <span class="product-category">EYES</span>
+                    <h3 class="product-name">Soft Brown Eyeliner</h3>
+                    <p>A smooth brown liner for naturally defined eyes.</p>
+
+                    <div class="product-footer">
+                        <div class="rating">★★★★★ <span>4.7</span></div>
+                        <strong class="product-price">₱279.00</strong>
+                    </div>
+
+                    <button class="quick-view-btn" onclick="quickView(this)" type="button">🔍 Quick View</button>
+                </div>
+            </div>
+
+            <!-- Cheeks -->
+
+            <!-- Soft Pink Blush -->
+            <div class="product-card" data-category="CHEEKS">
+                <div class="product-photo">
+                    <span class="badge new">NEW</span>
+
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)" type="button">♡</button>
+
+                    <img src="images/blush.jpg" alt="Soft Pink Blush">
+
+                    <button class="quick-add" onclick="addToCart('Soft Pink Blush', 349)" type="button">Add to Cart</button>
+                </div>
+
+                <div class="product-details">
+                    <span class="product-category">CHEEKS</span>
+                    <h3 class="product-name">Soft Pink Blush</h3>
+                    <p>A soft pop of color for naturally fresh-looking cheeks.</p>
+
+                    <div class="product-footer">
+                        <div class="rating">★★★★★ <span>4.8</span></div>
+                        <strong class="product-price">₱349.00</strong>
+                    </div>
+
+                    <button class="quick-view-btn" onclick="quickView(this)" type="button">🔍 Quick View</button>
+                </div>
+            </div>
+
+            <!-- Rose Cream Blush -->
+            <div class="product-card" data-category="CHEEKS">
+                <div class="product-photo">
+                    <span class="badge favorite">FAVORITE</span>
+
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)" type="button">♡</button>
+
+                    <img src="images/bronzer.jpg" alt="Bronzer">
+
+                    <button class="quick-add" onclick="addToCart('Rose Cream Blush', 379)" type="button">Add to Cart</button>
+                </div>
+
+                <div class="product-details">
+                    <span class="product-category">CHEEKS</span>
+                    <h3 class="product-name">Bronzer</h3>
+                    <p>A powder bronzer that will elevate your look.</p>
+
+                    <div class="product-footer">
+                        <div class="rating">★★★★★ <span>4.8</span></div>
+                        <strong class="product-price">₱379.00</strong>
+                    </div>
+
+                    <button class="quick-view-btn" onclick="quickView(this)" type="button">🔍 Quick View</button>
+                </div>
+            </div>
+
+            <!-- Soft Glow Highlighter -->
+            <div class="product-card" data-category="CHEEKS">
+                <div class="product-photo">
+                    <button class="wishlist-btn" onclick="toggleWishlist(this)" type="button">♡</button>
+
+                    <img src="images/highlighter.jpg" alt="Soft Glow Highlighter">
+
+                    <button class="quick-add" onclick="addToCart('Soft Glow Highlighter', 429)" type="button">Add to Cart</button>
+                </div>
+
+                <div class="product-details">
+                    <span class="product-category">CHEEKS</span>
+                    <h3 class="product-name">Soft Glow Highlighter</h3>
+                    <p>A subtle luminous finish for naturally glowing cheeks.</p>
+
+                    <div class="product-footer">
+                        <div class="rating">★★★★★ <span>4.9</span></div>
+                        <strong class="product-price">₱429.00</strong>
+                    </div>
+
+                    <button class="quick-view-btn" onclick="quickView(this)" type="button">🔍 Quick View</button>
+                </div>
+            </div>
+
+        </div>
+        <!-- End Product Grid -->
+
+    </div>
+    <!-- End Product Area -->
+
+</section>
+
+<!-- Promo -->
+<section class="promo">
+    <div class="promo-content">
+        <span>YOUR BEAUTY ROUTINE</span>
+        <h2>Simple.<br><em>Beautiful.</em></h2>
+        <a href="#shop" class="white-btn">Explore Collection</a>
+    </div>
+</section>
+
+<!-- Inquiry -->
+<section class="inquiry-section" id="inquiry">
+    <div class="inquiry-heading">
+        <span>LET'S TALK</span>
+        <h2>Have a question? <em>We're here.</em></h2>
+        <p>Send us an inquiry and we'll be happy to assist you.</p>
+    </div>
+
+    <div class="inquiry-box">
+        <form onsubmit="return validateInquiry()">
+
+            <div class="two-inputs">
+                <div>
+                    <label>Your Name</label>
+                    <input type="text" id="inquiryName" placeholder="Enter your name">
+                </div>
+
+                <div>
+                    <label>Email Address</label>
+                    <input type="email" id="inquiryEmail" placeholder="you@example.com">
+                </div>
+            </div>
+
+            <label>Subject</label>
+            <input type="text" id="inquirySubject" placeholder="What can we help you with?">
+
+            <label>Your Message</label>
+            <textarea id="inquiryMessage" rows="6" placeholder="Write your inquiry here..."></textarea>
+
+            <p id="inquiryStatus" class="form-message"></p>
+
+            <button type="submit" class="form-button">Send Inquiry →</button>
+        </form>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-top">
+
+        <div class="footer-brand">
+            <a href="2026-0082MarquezRoseBeauty.html" class="logo">Rosé<span>Beauty</span></a>
+            <p>Everyday beauty essentials designed with simplicity, elegance, and confidence in mind.</p>
+        </div>
+
+        <div class="footer-column">
+            <h4>EXPLORE</h4>
+            <a href="2026-0082MarquezRoseBeauty.html">Home</a>
+            <a href="2026-0082MarquezRoseBeauty.html">About</a>
+            <a href="#shop">Shop</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>ACCOUNT</h4>
+            <a href="2026-0082MarquezRoseBeauty.html#signin">Sign In</a>
+            <a href="2026-0082MarquezRoseBeauty.html#signup">Sign Up</a>
+        </div>
+
+        <div class="footer-column">
+            <h4>CONTACT</h4>
+            <a href="#inquiry">Inquiry</a>
+            <a href="mailto:rosebeauty@example.com">Email Us</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <span>© 2026 Rosé Beauty. All rights reserved.</span>
+        <span>Made with ♡</span>
+    </div>
+</footer>
+
+<!-- Mini Cart -->
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+<aside class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+        <div>
+            <span>YOUR BAG</span>
+            <h2>Shopping Cart</h2>
+        </div>
+
+        <button class="cart-close" onclick="closeCart()" type="button">×</button>
+    </div>
+
+    <div class="cart-items" id="cartItems">
+        <div class="empty-cart">
+            <div class="empty-cart-icon">♡</div>
+            <h3>Your bag is empty</h3>
+            <p>Add something beautiful to your cart.</p>
+        </div>
+    </div>
+
+    <div class="cart-footer">
+        <div class="cart-total-row">
+            <span>Subtotal</span>
+            <strong id="cartTotal">₱0.00</strong>
+        </div>
+
+        <button class="checkout-btn" onclick="checkoutCart()" type="button">Proceed to Checkout</button>
+        <button class="continue-shopping" onclick="closeCart()" type="button">Continue Shopping</button>
+    </div>
+</aside>
+
+<!-- Quick View -->
+<div class="quick-view-overlay" id="quickViewOverlay" onclick="closeQuickView(event)">
+    <div class="quick-view-modal" onclick="event.stopPropagation()">
+
+        <button class="quick-view-close" onclick="closeQuickView()" type="button">×</button>
+
+        <div class="quick-view-image">
+            <img id="quickViewImage" src="" alt="Product">
+        </div>
+
+        <div class="quick-view-details">
+            <span class="quick-view-category" id="quickViewCategory">LIPS</span>
+            <h2 id="quickViewName">Product Name</h2>
+            <div class="quick-view-stars">★★★★★</div>
+            <p id="quickViewDescription">Product description.</p>
+            <strong class="quick-view-price" id="quickViewPrice">₱0.00</strong>
+
+            <button class="quick-view-cart" id="quickViewCartButton" type="button">Add to Cart</button>
+        </div>
+
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script src="2026-0082MarquezScript.js"></script>
+
+
+</body>
+</html>

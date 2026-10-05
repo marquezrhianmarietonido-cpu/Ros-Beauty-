@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rosé Beauty</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="2026-0082MarquezStyle.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="header">
+        <nav class="navbar">
+
+            <a href="2026-0082MarquezRoseBeauty.html" class="logo">Rosé<span>Beauty</span></a>
+
+            <ul class="nav-links">
+                <li><a href="2026-0082MarquezRoseBeauty.html">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="2026-0082MarquezRoseBeauty2.html">Shop</a></li>
+                <li><a href="#signin">Sign In</a></li>
+                <li><a href="#signup">Sign Up</a></li>
+                <li><a href="2026-0082MarquezRoseBeauty2.html#inquiry">Contact</a></li>
+            </ul>
+
+            <!-- Search -->
+            <div class="top-search">
+                <span>⌕</span>
+                <input type="text" id="productSearch" placeholder="Search products..." onkeyup="searchProducts()">
+            </div>
+
+            <!-- Cart -->
+            <button class="cart" type="button" onclick="openCart()">
+                🛍️ <span id="cartCount">0</span>
+            </button>
+
+        </nav>
+    </header>
+
+    <!-- Head -->
+    <section class="head" id="home">
+
+        <div class="head-content">
+
+            <div class="head-label">NEW BEAUTY COLLECTION 2026</div>
+
+            <h1>
+                Timeless beauty,
+                <span>made for you.</span>
+            </h1>
+
+            <p>
+                Discover carefully selected beauty essentials
+                designed to make your everyday routine feel
+                effortless, elegant, and uniquely yours.
+            </p>
+
+            <div class="head-buttons">
+                <a href="2026-0082MarquezRoseBeauty2.html" class="primary-btn">Shop Collection</a>
+                <a href="#about" class="secondary-btn">Discover More</a>
+            </div>
+
+            <div class="head-note">Cruelty-free • Everyday essentials</div>
+
+        </div>
+
+        <div class="head-visual">
+
+            <div class="pink-circle"></div>
+
+            <img src="images/makeup.jpg" alt="Rosé Beauty Makeup Collection">
+
+            <div class="floating-card">
+                <span>BEST SELLER</span>
+                <strong>Rosé Lipstick</strong>
+                <small>₱379.00</small>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- About -->
+    <section class="section about" id="about">
+
+        <div class="section-heading">
+            <span>OUR STORY</span>
+
+            <h2>
+                Beauty should feel
+                <em>effortless.</em>
+            </h2>
+        </div>
+
+        <div class="about-grid">
+
+            <div class="about-image">
+
+                <img src="images/cover.jpg" alt="Rosé Beauty Collection">
+
+                <div class="experience-card">
+                    <strong>01</strong>
+                    <span>Simple beauty.<br>Thoughtfully chosen.</span>
+                </div>
+
+            </div>
+
+            <div class="about-text">
+
+                <p class="about-lead">
+                    Makeup is more than just products.
+                    It is a small part of the moments
+                    that make you feel confident and
+                    comfortable in your own way.
+                </p>
+
+                <p>
+                    Rosé Beauty was created to bring
+                    together everyday makeup essentials
+                    with a soft, modern, and elegant
+                    aesthetic.
+                </p>
+
+                <p>
+                    From natural everyday looks to
+                    special occasions, our collection
+                    offers products that are simple to
+                    explore and easy to love.
+                </p>
+
+                <a href="2026-0082MarquezRoseBeauty2.html" class="text-link">Explore our collection →</a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Categories -->
+    <section class="section products">
+
+        <div class="products-heading">
+
+            <div class="section-heading">
+                <span>EXPLORE BEAUTY</span>
+
+                <h2>
+                    Find your
+                    <em>favorites.</em>
+                </h2>
+            </div>
+
+            <p>
+                Explore our beauty categories and
+                discover makeup essentials made for
+                everyday beauty.
+            </p>
+
+        </div>
+
+        <div class="category-title">
+            <span>SHOP BY CATEGORY</span>
+            <h3>Your beauty, your collection.</h3>
+        </div>
+
+        <div class="category-grid">
+
+            <!-- Lips -->
+            <a href="2026-0082MarquezRoseBeauty2.html" class="category-card">
+                <img src="images/lips.jpg" alt="Lips Makeup">
+
+                <div class="category-overlay">
+                    <span>CATEGORY 01</span>
+                    <h3>Lips</h3>
+                    <small>Lipsticks • Tints • Gloss</small>
+                </div>
+            </a>
+
+            <!-- Face -->
+            <a href="2026-0082MarquezRoseBeauty2.html" class="category-card">
+                <img src="images/face.jpg" alt="Face Makeup">
+
+                <div class="category-overlay">
+                    <span>CATEGORY 02</span>
+                    <h3>Face</h3>
+                    <small>Foundation • Concealer • Powder</small>
+                </div>
+            </a>
+
+            <!-- Eyes -->
+            <a href="2026-0082MarquezRoseBeauty2.html" class="category-card">
+                <img src="images/eyes.jpg" alt="Eye Makeup">
+
+                <div class="category-overlay">
+                    <span>CATEGORY 03</span>
+                    <h3>Eyes</h3>
+                    <small>Mascara • Palette • Eyeliner</small>
+                </div>
+            </a>
+
+            <!-- Cheeks -->
+            <a href="2026-0082MarquezRoseBeauty2.html" class="category-card">
+                <img src="images/cheeks.jpg" alt="Cheek Makeup">
+
+                <div class="category-overlay">
+                    <span>CATEGORY 04</span>
+                    <h3>Cheeks</h3>
+                    <small>Blush • Cream Blush • Highlighter</small>
+                </div>
+            </a>
+
+        </div>
+
+        <div class="all-products-box">
+            <a href="2026-0082MarquezRoseBeauty2.html" class="primary-btn">View All Products</a>
+        </div>
+
+    </section>
+
+    <!-- Best Sellers -->
+    <section class="section best-sellers" id="best-sellers">
+
+        <div class="section-heading">
+            <span>OUR FAVORITES</span>
+
+            <h2>Best <em>Sellers.</em></h2>
+
+            <p>Discover the beauty essentials everyone is loving.</p>
+        </div>
+
+        <div class="best-seller-grid">
+
+            <!-- Product 1 -->
+            <div class="best-seller-card">
+
+                <div class="best-seller-image">
+                    <span class="best-seller-badge">BEST SELLER</span>
+                    <img src="images/LIP Balm.jpg" alt="Tinted Lip Balm">
+                </div>
+
+                <div class="best-seller-info">
+
+                    <span class="product-category">LIPS</span>
+
+                    <h3 class="product-name">Tinted Lip Balm</h3>
+
+                    <p class="best-seller-description">
+                        A soft and moisturizing tint for
+                        naturally beautiful lips.
+                    </p>
+
+                    <div class="best-seller-bottom">
+                        <span class="best-seller-price">₱299.00</span>
+                        <span class="best-seller-rating">★★★★★</span>
+                    </div>
+
+                    <div class="best-seller-actions">
+
+                        <button class="wishlist-btn" onclick="toggleWishlist(this)">♡</button>
+
+                        <button class="best-seller-btn" onclick="addToCart('Tinted Lip Balm', 299)">
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Product 2 -->
+            <div class="best-seller-card">
+
+                <div class="best-seller-image">
+                    <span class="best-seller-badge">BEST SELLER</span>
+                    <img src="images/lipstick.jpg" alt="Velvet Lipstick">
+                </div>
+
+                <div class="best-seller-info">
+
+                    <span class="product-category">LIPS</span>
+
+                    <h3 class="product-name">Velvet Lipstick</h3>
+
+                    <p class="best-seller-description">
+                        A smooth lipstick with a comfortable
+                        velvet finish for everyday looks.
+                    </p>
+
+                    <div class="best-seller-bottom">
+                        <span class="best-seller-price">₱379.00</span>
+                        <span class="best-seller-rating">★★★★★</span>
+                    </div>
+
+                    <div class="best-seller-actions">
+
+                        <button class="wishlist-btn" onclick="toggleWishlist(this)">♡</button>
+
+                        <button class="best-seller-btn" onclick="addToCart('Velvet Lipstick', 379)">
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Product 3 -->
+            <div class="best-seller-card">
+
+                <div class="best-seller-image">
+                    <span class="best-seller-badge">BEST SELLER</span>
+                    <img src="images/foundation.png" alt="Natural Glow Foundation">
+                </div>
+
+                <div class="best-seller-info">
+
+                    <span class="product-category">FACE</span>
+
+                    <h3 class="product-name">Natural Glow Foundation</h3>
+
+                    <p class="best-seller-description">
+                        Lightweight coverage that leaves
+                        your skin looking fresh and radiant.
+                    </p>
+
+                    <div class="best-seller-bottom">
+                        <span class="best-seller-price">₱599.00</span>
+                        <span class="best-seller-rating">★★★★★</span>
+                    </div>
+
+                    <div class="best-seller-actions">
+
+                        <button class="wishlist-btn" onclick="toggleWishlist(this)">♡</button>
+
+                        <button class="best-seller-btn" onclick="addToCart('Natural Glow Foundation', 599)">
+                            Add to Cart
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="best-seller-view">
+            <a href="2026-0082MarquezRoseBeauty2.html" class="secondary-btn">Explore All Products</a>
+        </div>
+
+    </section>
+
+    <!-- Promo -->
+    <section class="promo">
+
+        <div class="promo-content">
+
+            <span>BEAUTY MADE SIMPLE</span>
+
+            <h2>
+                Come back to the
+                <br>
+                <em>young & beautiful you.</em>
+            </h2>
+
+            <a href="2026-0082MarquezRoseBeauty2.html" class="white-btn">Shop Now</a>
+
+        </div>
+
+    </section>
+
+    <!-- Sign In -->
+   <section class="account-section" id="signin">
+
+        <div class="account-box">
+
+            <div class="account-side">
+
+                <span>WELCOME BACK</span>
+
+                <h2>
+                    Good to see
+                    <em>you.</em>
+                </h2>
+
+                <p>
+                    Sign in to continue your
+                    Rosé Beauty experience.
+                </p>
+
+            </div>
+
+            <div class="form-area">
+
+                <h3>Sign In</h3>
+
+                <p class="form-subtitle">
+                    Enter your account details below.
+                </p>
+
+                <form onsubmit="return validateSignIn()">
+
+                    <label>Email Address</label>
+
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        placeholder="you@example.com"
+                    >
+
+                    <label>Password</label>
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                    >
+
+                    <p id="loginMessage" class="form-message"></p>
+
+                    <button type="submit" class="form-button">
+                        Sign In
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Sign Up -->
+    <section class="account-section pink-bg" id="signup">
+
+        <div class="account-box reverse">
+
+            <div class="account-side">
+
+                <span>JOIN ROSÉ BEAUTY</span>
+
+                <h2>
+                    Your beauty
+                    <em>starts here.</em>
+                </h2>
+
+                <p>
+                    Create an account and become
+                    part of our beauty community.
+                </p>
+
+            </div>
+
+            <div class="form-area">
+
+                <h3>Create Account</h3>
+
+                <p class="form-subtitle">
+                    Fill in the information below.
+                </p>
+
+                <form onsubmit="return validateSignUp()">
+
+                    <label>Full Name</label>
+
+                    <input
+                        type="text"
+                        id="fullName"
+                        placeholder="Your full name"
+                    >
+
+                    <label>Email Address</label>
+
+                    <input
+                        type="email"
+                        id="signupEmail"
+                        placeholder="you@example.com"
+                    >
+
+                    <label>Password</label>
+
+                    <input
+                        type="password"
+                        id="signupPassword"
+                        placeholder="Create a password"
+                    >
+
+                    <label>Confirm Password</label>
+
+                    <input
+                        type="password"
+                        id="confirmPassword"
+                        placeholder="Confirm your password"
+                    >
+
+                    <p id="signupMessage" class="form-message"></p>
+
+                    <button type="submit" class="form-button">
+                        Create Account
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+
+        <div>
+            <span>STAY BEAUTIFUL</span>
+            <h2>Get beauty updates.</h2>
+        </div>
+
+        <form class="newsletter-form" onsubmit="return subscribeNewsletter()">
+
+            <input
+                type="email"
+                id="newsletterEmail"
+                placeholder="Enter your email address"
+                required
+            >
+
+            <button type="submit">Subscribe</button>
+
+        </form>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+
+        <div class="footer-top">
+
+            <div class="footer-brand">
+
+                <a href="2026-0082MarquezRoseBeauty.html" class="logo">Rosé<span>Beauty</span></a>
+
+                <p>
+                    Everyday beauty essentials
+                    designed with simplicity,
+                    elegance, and confidence in mind.
+                </p>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h4>EXPLORE</h4>
+
+                <a href="2026-0082MarquezRoseBeauty.html">Home</a>
+                <a href="#about">About</a>
+                <a href="2026-0082MarquezRoseBeauty2.html">Shop</a>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h4>ACCOUNT</h4>
+
+                <a href="#signin">Sign In</a>
+                <a href="signup">Sign Up</a>
+
+            </div>
+
+            <div class="footer-column">
+
+                <h4>CONTACT</h4>
+
+                <a href="#inquiry">Inquiry</a>
+                <a href="mailto:rosebeauty@example.com">Email Us</a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 Rosé Beauty. All rights reserved.</span>
+            <span>Made with ♡</span>
+        </div>
+
+    </footer>
+
+    <!-- Mini Cart -->
+    <div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
+
+    <aside class="cart-drawer" id="cartDrawer">
+
+        <div class="cart-header">
+
+            <div>
+                <span>YOUR BAG</span>
+                <h2>Shopping Cart</h2>
+            </div>
+
+            <button class="cart-close" onclick="closeCart()">×</button>
+
+        </div>
+
+        <div class="cart-items" id="cartItems">
+
+            <div class="empty-cart">
+
+                <div class="empty-cart-icon">♡</div>
+
+                <h3>Your bag is empty</h3>
+
+                <p>Add something beautiful to your cart.</p>
+
+            </div>
+
+        </div>
+
+        <div class="cart-footer">
+
+            <div class="cart-total-row">
+                <span>Subtotal</span>
+                <strong id="cartTotal">₱0.00</strong>
+            </div>
+
+            <button class="checkout-btn" onclick="checkoutCart()">
+                Proceed to Checkout
+            </button>
+
+            <button class="continue-shopping" onclick="closeCart()">
+                Continue Shopping
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- Quick View -->
+    <div
+        class="quick-view-overlay"
+        id="quickViewOverlay"
+        onclick="closeQuickView(event)"
+    >
+
+        <div
+            class="quick-view-modal"
+            onclick="event.stopPropagation()"
+        >
+
+            <button class="quick-view-close" onclick="closeQuickView()">
+                ×
+            </button>
+
+            <div class="quick-view-image">
+
+                <img
+                    id="quickViewImage"
+                    src=""
+                    alt="Product"
+                >
+
+            </div>
+
+            <div class="quick-view-details">
+
+                <span
+                    class="quick-view-category"
+                    id="quickViewCategory"
+                >
+                    LIPS
+                </span>
+
+                <h2 id="quickViewName">Product Name</h2>
+
+                <div class="quick-view-stars">★★★★★</div>
+
+                <p id="quickViewDescription">
+                    Product description.
+                </p>
+
+                <strong
+                    class="quick-view-price"
+                    id="quickViewPrice"
+                >
+                    ₱0.00
+                </strong>
+
+                <button
+                    class="quick-view-cart"
+                    id="quickViewCartButton"
+                >
+                    Add to Cart
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- JavaScript -->
+    <script src="2026-0082MarquezScript.js"></script>
+
+</body>
+</html>
