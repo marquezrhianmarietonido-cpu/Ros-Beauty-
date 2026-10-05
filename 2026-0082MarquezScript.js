@@ -1,10 +1,8 @@
 /* CART - Mini Cart + Local Storage */
-
 let cartItems = JSON.parse(localStorage.getItem("roseBeautyCart")) || [];
 let cartCount = 0;
 
 /* PRODUCT DEFAULT PRICES */
-
 const productPrices = {
     "Tinted Lip Balm": 299,
     "Velvet Lipstick": 379,
@@ -21,16 +19,13 @@ const productPrices = {
 };
 
 /* ADD TO CART */
-
 function addToCart(productName, price) {
     if (!price) {
         price = productPrices[productName] || 0;
     }
-
     const existingProduct = cartItems.find(function(item) {
         return item.name === productName;
-    });
-
+    }); 
     if (existingProduct) {
         existingProduct.quantity++;
     } else {
@@ -40,49 +35,40 @@ function addToCart(productName, price) {
             quantity: 1
         });
     }
-
+    
     saveCart();
     updateCartUI();
-
     alert(productName + " has been added to your cart! 💗");
 }
 
 /* SAVE CART */
-
 function saveCart() {
     localStorage.setItem("roseBeautyCart", JSON.stringify(cartItems));
 }
 
 /* UPDATE CART */
-
 function updateCartUI() {
     cartCount = 0;
-
     cartItems.forEach(function(item) {
         cartCount += item.quantity;
     });
 
     const cartCountElement = document.getElementById("cartCount");
-
     if (cartCountElement) {
         cartCountElement.textContent = cartCount;
-    }
-
+    }    
     renderCart();
 }
 
 /* RENDER CART */
-
 function renderCart() {
     const cartItemsContainer = document.getElementById("cartItems");
     const cartTotalElement = document.getElementById("cartTotal");
-
     if (!cartItemsContainer) {
         return;
     }
 
     /* EMPTY CART */
-
     if (cartItems.length === 0) {
         cartItemsContainer.innerHTML = `
             <div class="empty-cart">
@@ -91,26 +77,20 @@ function renderCart() {
                 <p>Add something beautiful to your cart.</p>
             </div>
         `;
-
         if (cartTotalElement) {
             cartTotalElement.textContent = "₱0.00";
         }
-
         return;
     }
 
     /* CART PRODUCTS */
-
     let total = 0;
     cartItemsContainer.innerHTML = "";
-
     cartItems.forEach(function(item, index) {
         const itemTotal = item.price * item.quantity;
         total += itemTotal;
-
         const cartItem = document.createElement("div");
         cartItem.className = "cart-item";
-
         cartItem.innerHTML = `
             <div class="cart-item-info">
                 <h4>${item.name}</h4>
@@ -130,53 +110,41 @@ function renderCart() {
         cartTotalElement.textContent = "₱" + total.toFixed(2);
     }
 }
-
 /* REMOVE FROM CART */
-
 function removeFromCart(index) {
     if (index < 0 || index >= cartItems.length) {
         return;
     }
-
     const removedProduct = cartItems[index].name;
-
     cartItems.splice(index, 1);
 
     saveCart();
     updateCartUI();
-
     alert(removedProduct + " has been removed from your cart.");
 }
 
 /* OPEN CART */
-
 function openCart() {
     const drawer = document.getElementById("cartDrawer");
     const overlay = document.getElementById("cartOverlay");
-
     if (drawer) {
         drawer.classList.add("active");
     }
-
     if (overlay) {
         overlay.classList.add("active");
     }
 
     document.body.classList.add("cart-open");
-
     updateCartUI();
 }
 
 /* CLOSE CART */
-
 function closeCart() {
     const drawer = document.getElementById("cartDrawer");
-    const overlay = document.getElementById("cartOverlay");
-
+    const overlay = document.getElementById("cartOverlay");  
     if (drawer) {
         drawer.classList.remove("active");
     }
-
     if (overlay) {
         overlay.classList.remove("active");
     }
@@ -185,13 +153,11 @@ function closeCart() {
 }
 
 /* CHECKOUT */
-
 function checkoutCart() {
     if (cartItems.length === 0) {
         alert("Your cart is empty. Please add a product first. 💗");
         return;
     }
-
     alert(
         "Thank you for shopping with Rosé Beauty! 💗\n\n" +
         "Checkout is currently available for demonstration only."
@@ -199,31 +165,24 @@ function checkoutCart() {
 }
 
 /* WISHLIST */
-
 let wishlist = JSON.parse(localStorage.getItem("roseBeautyWishlist")) || [];
 
 /* TOGGLE WISHLIST */
-
 function toggleWishlist(button) {
     if (!button) {
         return;
     }
-
     const productCard = button.closest(".product-card");
-
     if (!productCard) {
         return;
     }
-
     const productNameElement = productCard.querySelector(".product-name");
-
     if (!productNameElement) {
         return;
     }
 
     const productName = productNameElement.textContent.trim();
     const wishlistIndex = wishlist.indexOf(productName);
-
     if (wishlistIndex === -1) {
         wishlist.push(productName);
 
@@ -233,7 +192,6 @@ function toggleWishlist(button) {
         alert(productName + " has been added to your wishlist! 💗");
     } else {
         wishlist.splice(wishlistIndex, 1);
-
         button.textContent = "♡";
         button.classList.remove("active");
 
@@ -247,25 +205,20 @@ function toggleWishlist(button) {
 }
 
 /* LOAD WISHLIST BUTTONS */
-
 function loadWishlist() {
     const buttons = document.querySelectorAll(".wishlist-btn");
 
     buttons.forEach(function(button) {
         const productCard = button.closest(".product-card");
-
         if (!productCard) {
             return;
         }
-
         const productNameElement = productCard.querySelector(".product-name");
-
         if (!productNameElement) {
             return;
         }
 
         const productName = productNameElement.textContent.trim();
-
         if (wishlist.includes(productName)) {
             button.textContent = "♥";
             button.classList.add("active");
@@ -277,22 +230,18 @@ function loadWishlist() {
 }
 
 /* QUICK VIEW */
-
 let currentQuickViewProduct = null;
 
 /* QUICK VIEW PRODUCT */
-
 function quickView(button) {
     if (!button) {
         return;
     }
 
     const productCard = button.closest(".product-card");
-
     if (!productCard) {
         return;
     }
-
     const image = productCard.querySelector("img");
     const name = productCard.querySelector(".product-name");
     const category = productCard.querySelector(".product-category");
@@ -301,7 +250,6 @@ function quickView(button) {
     if (!name) {
         return;
     }
-
     const productName = name.textContent.trim();
     let productPrice = 0;
 
@@ -318,7 +266,6 @@ function quickView(button) {
     }
 
     /* QUICK VIEW ELEMENTS */
-
     const imageElement = document.getElementById("quickViewImage");
     const nameElement = document.getElementById("quickViewName");
     const categoryElement = document.getElementById("quickViewCategory");
@@ -327,20 +274,17 @@ function quickView(button) {
     const modal = document.getElementById("quickViewOverlay");
 
     /* SET IMAGE */
-
     if (imageElement && image) {
         imageElement.src = image.src;
         imageElement.alt = productName;
     }
 
     /* SET NAME */
-
     if (nameElement) {
         nameElement.textContent = productName;
     }
 
     /* SET CATEGORY */
-
     if (categoryElement) {
         categoryElement.textContent = category
             ? category.textContent.trim()
@@ -348,26 +292,22 @@ function quickView(button) {
     }
 
     /* SET PRICE */
-
     if (priceElement) {
         priceElement.textContent = "₱" + productPrice.toFixed(2);
     }
 
     /* DESCRIPTION */
-
     if (descriptionElement) {
         descriptionElement.textContent = getProductDescription(productName);
     }
 
     /* CURRENT PRODUCT */
-
     currentQuickViewProduct = {
         name: productName,
         price: productPrice
     };
 
     /* QUICK VIEW CART BUTTON */
-
     const quickViewCartButton = document.getElementById("quickViewCartButton");
 
     if (quickViewCartButton) {
@@ -384,7 +324,6 @@ function quickView(button) {
     }
 
     /* SHOW MODAL */
-
     if (modal) {
         modal.classList.add("active");
     }
@@ -393,7 +332,6 @@ function quickView(button) {
 }
 
 /* PRODUCT DESCRIPTIONS */
-
 function getProductDescription(productName) {
     const descriptions = {
         "Tinted Lip Balm":
@@ -440,7 +378,6 @@ function getProductDescription(productName) {
 }
 
 /* CLOSE QUICK VIEW */
-
 function closeQuickView(event) {
     if (
         event &&
@@ -460,7 +397,6 @@ function closeQuickView(event) {
 }
 
 /* PRODUCT SEARCH */
-
 function searchProducts() {
     const searchInput = document.getElementById("productSearch");
 
@@ -469,7 +405,6 @@ function searchProducts() {
     }
 
     const searchValue = searchInput.value.toLowerCase().trim();
-
     const products = document.querySelectorAll(".product-card");
     const productArea = document.getElementById("productArea");
     const categoryTitle = document.getElementById("categoryProductTitle");
@@ -478,7 +413,6 @@ function searchProducts() {
     let found = false;
 
     /* EMPTY SEARCH */
-
     if (searchValue === "") {
         products.forEach(function(product) {
             product.style.display = "block";
@@ -500,7 +434,6 @@ function searchProducts() {
     }
 
     /* SEARCH */
-
     products.forEach(function(product) {
         const productNameElement = product.querySelector(".product-name");
         const productCategoryElement = product.querySelector(".product-category");
@@ -525,27 +458,22 @@ function searchProducts() {
     });
 
     /* SHOW RESULTS */
-
     if (productArea) {
         productArea.style.display = "block";
     }
-
     if (categoryTitle) {
         categoryTitle.textContent = "SEARCH RESULTS";
     }
-
     if (selectedCategory) {
         selectedCategory.textContent = "SEARCH: " + searchInput.value;
     }
 
     /* NO RESULTS */
-
     if (!found) {
         alert('No products found for "' + searchInput.value + '".');
     }
 
     /* SCROLL */
-
     if (productArea) {
         productArea.scrollIntoView({
             behavior: "smooth",
@@ -555,7 +483,6 @@ function searchProducts() {
 }
 
 /* ENTER KEY FOR SEARCH */
-
 document.addEventListener("DOMContentLoaded", function() {
     const searchInput = document.getElementById("productSearch");
 
@@ -570,7 +497,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 /* SHOW PRODUCT CATEGORY */
-
 function showCategory(category) {
     const productArea = document.getElementById("productArea");
     const selectedCategory = document.getElementById("selectedCategory");
@@ -579,19 +505,16 @@ function showCategory(category) {
     const products = document.querySelectorAll(".product-card");
 
     /* CLEAR SEARCH */
-
     if (searchInput) {
         searchInput.value = "";
     }
 
     /* SHOW PRODUCT AREA */
-
     if (productArea) {
         productArea.style.display = "block";
     }
 
     /* UPDATE TEXT */
-
     if (selectedCategory) {
         selectedCategory.textContent = category;
     }
@@ -605,7 +528,6 @@ function showCategory(category) {
     }
 
     /* FILTER PRODUCTS */
-
     products.forEach(function(product) {
         const productCategory = product.getAttribute("data-category");
 
@@ -620,7 +542,6 @@ function showCategory(category) {
     });
 
     /* SCROLL TO PRODUCTS */
-
     if (productArea) {
         productArea.scrollIntoView({
             behavior: "smooth",
@@ -630,25 +551,21 @@ function showCategory(category) {
 }
 
 /* BACK TO CATEGORIES */
-
 function backToCategories() {
     const productArea = document.getElementById("productArea");
     const searchInput = document.getElementById("productSearch");
 
     /* HIDE PRODUCTS */
-
     if (productArea) {
         productArea.style.display = "none";
     }
 
     /* CLEAR SEARCH */
-
     if (searchInput) {
         searchInput.value = "";
     }
 
     /* SHOW PRODUCTS AGAIN */
-
     const products = document.querySelectorAll(".product-card");
 
     products.forEach(function(product) {
@@ -656,7 +573,6 @@ function backToCategories() {
     });
 
     /* RETURN TO SHOP */
-
     const shopSection = document.getElementById("shop");
 
     if (shopSection) {
@@ -667,7 +583,6 @@ function backToCategories() {
 }
 
 /* SIGN IN VALIDATION */
-
 function validateSignIn() {
     const email = document.getElementById("loginEmail");
     const password = document.getElementById("loginPassword");
@@ -680,28 +595,24 @@ function validateSignIn() {
     const passwordValue = password.value.trim();
 
     /* EMPTY FIELDS */
-
     if (emailValue === "" || passwordValue === "") {
         alert("Please fill in all required fields.");
         return false;
     }
 
     /* EMAIL */
-
     if (!isValidEmail(emailValue)) {
         alert("Please enter a valid email address.");
         return false;
     }
 
     /* PASSWORD */
-
     if (passwordValue.length < 6) {
         alert("Password must be at least 6 characters long.");
         return false;
     }
 
     /* SUCCESS */
-
     alert(
         "Sign in successful! " +
         "Welcome back to Rosé Beauty. 💗"
@@ -711,7 +622,6 @@ function validateSignIn() {
 }
 
 /* SIGN UP VALIDATION */
-
 function validateSignUp() {
     const name = document.getElementById("fullName");
     const email = document.getElementById("signupEmail");
@@ -728,7 +638,6 @@ function validateSignUp() {
     const confirmPasswordValue = confirmPassword.value.trim();
 
     /* EMPTY FIELDS */
-
     if (
         nameValue === "" ||
         emailValue === "" ||
@@ -740,28 +649,24 @@ function validateSignUp() {
     }
 
     /* EMAIL */
-
     if (!isValidEmail(emailValue)) {
         alert("Please enter a valid email address.");
         return false;
     }
 
     /* PASSWORD LENGTH */
-
     if (passwordValue.length < 6) {
         alert("Password must be at least 6 characters long.");
         return false;
     }
 
     /* PASSWORD MATCH */
-
     if (passwordValue !== confirmPasswordValue) {
         alert("Passwords do not match.");
         return false;
     }
 
     /* SUCCESS */
-
     alert(
         "Account created successfully! " +
         "Welcome to Rosé Beauty, " +
@@ -773,14 +678,12 @@ function validateSignUp() {
 }
 
 /* EMAIL VALIDATION */
-
 function isValidEmail(email) {
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailPattern.test(email);
 }
 
 /* INQUIRY / CONTACT FORM */
-
 function validateInquiry() {
     const name = document.getElementById("inquiryName");
     const email = document.getElementById("inquiryEmail");
@@ -795,7 +698,6 @@ function validateInquiry() {
     const messageValue = message.value.trim();
 
     /* EMPTY FIELDS */
-
     if (
         nameValue === "" ||
         emailValue === "" ||
@@ -810,14 +712,12 @@ function validateInquiry() {
     }
 
     /* EMAIL */
-
     if (!isValidEmail(emailValue)) {
         alert("Please enter a valid email address.");
         return false;
     }
 
     /* SUCCESS */
-
     alert(
         "Thank you, " +
         nameValue +
@@ -828,7 +728,6 @@ function validateInquiry() {
 }
 
 /* NEWSLETTER */
-
 function subscribeNewsletter() {
     const emailInput = document.getElementById("newsletterEmail");
 
@@ -839,21 +738,18 @@ function subscribeNewsletter() {
     const emailValue = emailInput.value.trim();
 
     /* EMPTY EMAIL */
-
     if (emailValue === "") {
         alert("Please enter your email address.");
         return;
     }
 
     /* VALIDATE EMAIL */
-
     if (!isValidEmail(emailValue)) {
         alert("Please enter a valid email address.");
         return;
     }
 
     /* SUCCESS */
-
     alert(
         "Thank you for subscribing to " +
         "Rosé Beauty! 💗"
@@ -863,7 +759,6 @@ function subscribeNewsletter() {
 }
 
 /* NAVIGATION */
-
 function goToSection(sectionId) {
     const section = document.getElementById(sectionId);
 
@@ -871,24 +766,20 @@ function goToSection(sectionId) {
         section.scrollIntoView({
             behavior: "smooth"
         });
-
         return;
     }
 
     /* SHOP PAGE */
-
     if (sectionId === "shop") {
         window.location.href = "2026-0082MarquezRoseBeauty2.html#shop";
         return;
     }
 
     /* HOME PAGE */
-
     window.location.href = "2026-0082MarquezRoseBeauty.html#" + sectionId;
 }
 
 /* HOME BUTTON */
-
 function goHome() {
     if (
         window.location.pathname.endsWith("2026-0082MarquezRoseBeauty.html") ||
@@ -904,7 +795,6 @@ function goHome() {
 }
 
 /* CLEAR SEARCH */
-
 function clearSearch() {
     const searchInput = document.getElementById("productSearch");
 
@@ -936,7 +826,6 @@ function clearSearch() {
 }
 
 /* PAGE LOAD */
-
 document.addEventListener("DOMContentLoaded", function() {
     /* PRODUCT AREA */
 
@@ -947,15 +836,12 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     /* CART */
-
     updateCartUI();
 
     /* WISHLIST */
-
     loadWishlist();
 
     /* SEARCH */
-
     const searchInput = document.getElementById("productSearch");
 
     if (searchInput) {
@@ -964,7 +850,6 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 /* ESC KEY - Close Cart / Quick View */
-
 document.addEventListener("keydown", function(event) {
     if (event.key === "Escape") {
         closeCart();
